@@ -1,0 +1,82 @@
+.projectPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+.projectPage-header {
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.projectPage-header > h1 {
+    font-size: 4rem;
+    font-family: var(--primaryFont);
+}
+
+.projectPage-container {
+    padding: 3rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.projectPage-search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem; /* Memberi jarak antara search bar dan kartu */
+}
+
+/* --- KUNCI UTAMA: MEMBUAT CSS GRID 3 KOLOM YANG SERAGAM --- */
+.project-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    align-items: stretch; /* Memastikan semua kartu sama tinggi */
+}
+
+/* --- RESPONSIVE DESIGN UNTUK TABLET & HP --- */
+
+@media screen and (max-width: 600px) {
+    /* HP: 1 Kolom berderet ke bawah */
+    .project-grid-container {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; /* Jarak antar card dikurangi agar lebih hemat ruang di HP */
+    }
+    .projectPage-header > h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* --- PERBAIKAN UKURAN FONT PADA CARD PROYEK DI HALAMAN INI --- */
+    .project-grid-container > div {
+        padding: 1.2rem !important; 
+    }
+    .project-grid-container h2 {
+        font-size: 1.1rem !important; 
+    }
+    .project-grid-container p {
+        font-size: 0.85rem !important; 
+        -webkit-line-clamp: 3 !important; 
+        line-clamp: 3 !important; /* Menghindari warning compatibility */
+    }
+    .project-grid-container .project--lang span {
+        font-size: 0.7rem !important; 
+        padding: 4px 8px !important;
+    }
+    .project-grid-container img {
+        height: 150px !important; 
+        margin-bottom: 0 !important; 
+    }
+}

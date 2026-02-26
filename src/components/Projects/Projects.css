@@ -1,0 +1,115 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 2rem;
+}
+
+.projects--header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+}
+
+.projects--header h1 {
+    margin-bottom: 40px;
+    font-size: 3.5rem;
+    font-family: var(--primaryFont);
+}
+
+.projects--body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- PERBAIKAN UTAMA: Menggunakan CSS GRID --- */
+.projects--bodyContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Memaksa tepat 3 kolom yang sama besar */
+    gap: 3rem; /* Jarak antar kartu (atas-bawah dan kiri-kanan) */
+    width: 100%;
+    max-width: 1200px; /* Menjaga agar tidak terlalu melar di monitor ultra-wide */
+}
+
+.projects--viewAll {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.projects--viewAll a button {
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: inherit;
+    border-radius: 45px;
+    font-size: 1.05rem;
+    font-family: var(--primaryFont);
+    font-weight: 500;
+    padding-left: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE DESIGN (Agar bagus di HP dan Tablet) --- */
+
+@media screen and (max-width: 600px) {
+    .projects--header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Untuk Layar HP: Ubah jadi 1 Kolom berderet ke bawah */
+    .projects--bodyContainer {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; /* Kurangi jarak antar kartu di HP */
+    }
+
+    .projects--viewAll {
+        position: relative;
+        margin-top: 3rem;
+        justify-content: center; /* Tombol pindah ke tengah di HP */
+    }
+    .projects--viewAll a {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);  
+    }
+
+    /* --- PERBAIKAN UKURAN FONT PADA CARD PROYEK --- */
+    /* Kita menembak langsung kelas di dalam SingleProject dari sini */
+    .projects--bodyContainer > div {
+        padding: 1.2rem !important; /* Kurangi padding kartu di HP */
+    }
+    .projects--bodyContainer h2 {
+        font-size: 1.1rem !important; /* Kecilkan judul proyek */
+    }
+    .projects--bodyContainer p {
+        font-size: 0.85rem !important; 
+        -webkit-line-clamp: 3 !important; /* Untuk browser berbasis WebKit (Chrome, Safari) */
+        line-clamp: 3 !important; /* Standar baku untuk kompatibilitas */
+    }
+    .projects--bodyContainer .project--lang span {
+        font-size: 0.7rem !important; /* Kecilkan label tech stack (Tags) */
+        padding: 4px 8px !important;
+    }
+    .projects--bodyContainer img {
+        height: 150px !important; /* Gambar di dalam card sedikit diturunkan tingginya */
+        margin-bottom: 0 !important; 
+    }
+}
