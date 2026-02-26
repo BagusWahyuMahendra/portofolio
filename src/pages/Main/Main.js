@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 // 1. IMPORT REACT-REVEAL DI SINI
 import Fade from 'react-reveal/Fade'; 
 
-import { Navbar, Footer, Landing, About, Skills, Testimonials, Blog, Education, Experience, Contacts, Projects, Services, Achievement } from '../../components'
+import { Navbar, Footer, Landing, About, Skills, Experience, Contacts, Projects} from '../../components'
 import { headerData } from '../../data/headerData'
 
 function Main() {
