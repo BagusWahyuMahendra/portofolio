@@ -6,7 +6,7 @@
 
 This repository contains the source code for my personal portfolio website, built to showcase my academic research, technical projects, and experiences in the field of Artificial Intelligence and Software Development.
 
-🔗 **Live Preview:** [Insert Your Vercel/Netlify Link Here]
+🔗 **Live Preview:** ...
 
 ---
 
